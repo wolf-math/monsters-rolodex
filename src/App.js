@@ -8,32 +8,28 @@ class App extends Component {
   constructor() {
     super();
 
-    this.state = [
-      {
-        name: 'Boogeyman'
-      },
-      {
-        name: 'Ghost'
-      },
-      {
-        name: 'Ice Cream Man'
-      }
-    ]
+    this.state = {
+      monsters: [
+        {
+          name: 'boogeyman',
+          id: 1
+        },
+        {
+          name: 'Ice Cream Man',
+          id: 2
+        }
+      ]
+    }
   }
   
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            {this.state.string}! 
-            {8-7}
-          </p>
-          <button onClick={() => this.setState({string : "Hey Yall, I'm Marry Poppins"})}>Change Text</button>
-        </header>
+        {this.state.monsters.map(monster => (
+            <h1 key={monster.id}> {monster.name}</h1>
+        ))}
       </div>
-    )
+    );
   }
 }
 
